@@ -1,0 +1,10 @@
+<h1>{{titulo}}</h1>
+
+<ol>
+  <li *ngFor="let livro of livros">{{livro}}</li>
+
+  <input [(ngModel)]="novoLivro" (keyup.enter)="inserirLivro()">
+
+  <br><br>
+  Está sendo digitado: <label>{{novoLivro}}</label>
+</ol>
