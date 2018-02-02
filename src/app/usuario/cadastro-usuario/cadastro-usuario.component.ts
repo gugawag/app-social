@@ -19,7 +19,7 @@ export class CadastroUsuarioComponent implements OnInit {
   }
 
   cadastrarUsuario() {
-    this.usuarioService.cadastrarUsuario(this.usuario);
+    this.usuarioService.cadastrarUsuario(this.usuario).subscribe();
     this.usuario = new Usuario();
 
     // Navega para a listagem de usuários

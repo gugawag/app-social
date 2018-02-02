@@ -1,3 +1,4 @@
+import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
@@ -6,18 +7,25 @@ import {Usuario} from '../model/usuario';
 @Injectable()
 export class UsuarioService {
 
-  usuarios: Array<Usuario> = [];
+  apiUsuarios = 'http://localhost:3000/usuarios';
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
   cadastrarUsuario(usuario: Usuario) {
-    console.log('Cadastrado ' + usuario.nome);
-    this.usuarios.push(usuario);
+    return this.http.post(this.apiUsuarios, usuario);
   }
 
   getUsuarios(): Observable<Usuario[]> {
-    return Observable.of(this.usuarios);
+    return this.http.get<Usuario[]>(this.apiUsuarios);
+  }
+
+  getUsuario(idUsuario: number): Observable<Usuario> {
+    return this.http.get<Usuario>(`${this.apiUsuarios}/${idUsuario}`);
+  }
+
+  removerUsuario(idUsuario: number) {
+    return this.http.delete(`${this.apiUsuarios}/${idUsuario}`);
   }
 
 }
