@@ -24,7 +24,7 @@ import {
   MatToolbarModule,
   MatTooltipModule,
   MatSlideToggleModule,
-  MatAutocompleteModule
+  MatAutocompleteModule, MatTableModule
 } from '@angular/material';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -56,7 +56,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatAutocompleteModule,
     ReactiveFormsModule,
     MatSnackBarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTableModule,
   ],
   exports: [
     FormsModule,
@@ -83,7 +84,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatSlideToggleModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTableModule,
   ],
   declarations: [],
   providers: [
