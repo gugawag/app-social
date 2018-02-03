@@ -1,0 +1,36 @@
+<button mat-button [matMenuTriggerFor]="menu">Menu</button>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="subMenuUsuarios">
+    <mat-icon>face</mat-icon>
+    <span>Usuários</span>
+  </button>
+  <button mat-menu-item [matMenuTriggerFor]="subMenuMensagens">
+    <mat-icon>message</mat-icon>
+    <span>Mensagens</span>
+  </button>
+</mat-menu>
+
+<mat-menu #subMenuUsuarios="matMenu">
+  <button mat-menu-item [routerLink]="'/usuario/cadastro/'">
+    <mat-icon>plus_one</mat-icon>
+    <span>Cadastrar</span>
+  </button>
+  <button mat-menu-item [routerLink]="'/usuario/listagem/'">
+    <mat-icon>supervisor_account</mat-icon>
+    <span>Listar</span>
+  </button>
+</mat-menu>
+
+<mat-menu #subMenuMensagens="matMenu">
+  <button mat-menu-item>
+    <mat-icon>send</mat-icon>
+    <span>Enviar</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>message</mat-icon>
+    <span>Listar</span>
+  </button>
+</mat-menu>
+
+<router-outlet></router-outlet>

@@ -19,11 +19,15 @@ export class CadastroUsuarioComponent implements OnInit {
   }
 
   cadastrarUsuario() {
-    this.usuarioService.cadastrarUsuario(this.usuario).subscribe();
-    this.usuario = new Usuario();
-
-    // Navega para a listagem de usuários
-    this.roteador.navigate(['/usuario/listagem']);
+    this.usuarioService.cadastrarUsuario(this.usuario).subscribe(
+      sucesso => {
+        console.log('Usuário ' + this.usuario.nome + ' cadastrado com sucesso!');
+        this.usuario = new Usuario();
+      },
+      erro => {
+        console.log(erro);
+      }
+    );
   }
 
 }

@@ -1,12 +1,12 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {AppComponent} from './app.component';
+import {MenuComponent} from './menu/menu.component';
 import {CadastroUsuarioComponent} from './usuario/cadastro-usuario/cadastro-usuario.component';
 import {ListagemUsuarioComponent} from './usuario/listagem-usuario/listagem-usuario.component';
 const routes: Routes = [
   {
     path: '',
-    component: AppComponent,
+    component: MenuComponent,
     children: [
       {
         path: 'usuario/cadastro',

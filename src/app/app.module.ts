@@ -3,21 +3,26 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
-import {MatInputModule, MatButtonModule, MatCheckboxModule, MatCardModule} from '@angular/material';
+import {
+  MatInputModule, MatButtonModule, MatCheckboxModule, MatCardModule, MatMenuModule,
+  MatIconModule
+} from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {UsuarioModule} from './usuario/usuario.module';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule, FormsModule,
-    MatInputModule, MatButtonModule, MatCheckboxModule, MatCardModule,
+    MatInputModule, MatButtonModule, MatCheckboxModule, MatCardModule, MatMenuModule, MatIconModule,
     UsuarioModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

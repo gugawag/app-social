@@ -1,6 +1,5 @@
-import {DataSource} from '@angular/cdk/collections';
 import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
+import {MatTableDataSource} from '@angular/material';
 import {Usuario} from '../../shared/model/usuario';
 import {UsuarioService} from '../../shared/service/usuario.service';
 
@@ -11,23 +10,31 @@ import {UsuarioService} from '../../shared/service/usuario.service';
 })
 export class ListagemUsuarioComponent implements OnInit {
 
-  dataSource = new UsuarioDataSource(this.usuarioService);
-  displayedColumns = ['login', 'nome'];
+  dataSource = new MatTableDataSource<Usuario>();
+  displayedColumns = ['login', 'nome', 'acoes'];
 
   constructor(private usuarioService: UsuarioService) {
   }
 
   ngOnInit() {
+    this.usuarioService.getUsuarios().subscribe(
+      usuarios => {
+        this.dataSource = new MatTableDataSource<Usuario>(usuarios);
+      }
+    );
   }
 
+  removerUsuario(usuario: Usuario, index: number) {
+    this.usuarioService.removerUsuario(usuario.id).subscribe(
+      sucesso => {
+        console.log('Removido usuário: ' + usuario.nome);
+        this.dataSource.data.splice(index, 1);
+        this.dataSource = new MatTableDataSource<Usuario>(this.dataSource.data);
+      }, erro => {
+        console.log(erro);
+      }
+    );
+
+  }
 }
 
-export class UsuarioDataSource extends DataSource<any> {
-  constructor(private usuarioService: UsuarioService) {
-    super();
-  }
-  connect(): Observable<Usuario[]> {
-    return this.usuarioService.getUsuarios();
-  }
-  disconnect() {}
-}
