@@ -1,0 +1,17 @@
+{
+  "usuarios": [
+    {
+      "nome": "teste",
+      "id": 6
+    },
+    {
+      "nome": "teste2",
+      "id": 7
+    },
+    {
+      "nome": "aqui",
+      "id": 8
+    }
+  ],
+  "mensagens": []
+}
