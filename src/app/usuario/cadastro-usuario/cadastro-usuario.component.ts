@@ -4,9 +4,10 @@ import {Usuario} from '../../shared/model/usuario';
 import {UsuarioService} from '../../shared/service/usuario.service';
 
 @Component({
-  selector: 'app-cadastro-usuario',
-  templateUrl: './cadastro-usuario.component.html',
-  styleUrls: ['./cadastro-usuario.component.css']
+    selector: 'app-cadastro-usuario',
+    templateUrl: './cadastro-usuario.component.html',
+    styleUrls: ['./cadastro-usuario.component.css'],
+    standalone: false
 })
 export class CadastroUsuarioComponent implements OnInit {
 

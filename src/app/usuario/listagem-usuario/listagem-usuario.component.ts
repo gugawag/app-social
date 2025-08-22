@@ -1,12 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {MatTableDataSource} from '@angular/material';
+import {MatTableDataSource} from '@angular/material/table';
 import {Usuario} from '../../shared/model/usuario';
 import {UsuarioService} from '../../shared/service/usuario.service';
 
 @Component({
-  selector: 'app-listagem-usuario',
-  templateUrl: './listagem-usuario.component.html',
-  styleUrls: ['./listagem-usuario.component.css']
+    selector: 'app-listagem-usuario',
+    templateUrl: './listagem-usuario.component.html',
+    styleUrls: ['./listagem-usuario.component.css'],
+    standalone: false
 })
 export class ListagemUsuarioComponent implements OnInit {
 
